@@ -904,16 +904,12 @@ function toggleMobileNav() {
     // Walk all the way to body and force dark background + no spacing
     var parent = el.parentElement;
     while (parent && parent !== document.documentElement) {
-      parent.style.setProperty('padding', '0', 'important');
-      parent.style.setProperty('margin', '0', 'important');
+      parent.style.setProperty('padding-bottom', '0', 'important');
+      parent.style.setProperty('margin-bottom', '0', 'important');
       parent.style.setProperty('background', '#0a0f1e', 'important');
-      parent.style.setProperty('min-height', '0', 'important');
       parent = parent.parentElement;
     }
-    // Also force body/html
     document.body.style.setProperty('background', '#0a0f1e', 'important');
-    document.body.style.setProperty('margin', '0', 'important');
-    document.body.style.setProperty('padding', '0', 'important');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixGHLSpacing);
   else fixGHLSpacing();
