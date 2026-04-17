@@ -25,6 +25,15 @@
 
   html { scroll-behavior: smooth; }
 
+  /* Force dark background on GHL's own container elements */
+  html, body,
+  .c-section, .c-row, .c-col, .c-column,
+  .c-custom-code, .c-wrapper, .c-container,
+  [class*="c-section"], [class*="c-row"], [class*="c-col"] {
+    background-color: #0a0f1e !important;
+    max-width: 100% !important;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: #0a0f1e;
@@ -629,8 +638,8 @@
 </head>
 <body>
 <!-- Fixed dark backdrop covers all GHL whitespace anywhere on the page -->
-<div style="position:fixed;inset:0;background:#0a0f1e;z-index:-9999;pointer-events:none;"></div>
-<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100%;display:block;">
+<div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0a0f1e;z-index:0;pointer-events:none;"></div>
+<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100%;display:block;position:relative;z-index:1;">
 
 <!-- NAV -->
 <nav>
