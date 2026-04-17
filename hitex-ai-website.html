@@ -40,9 +40,19 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 5%;
-    background: rgba(10,15,30,0.85);
-    backdrop-filter: blur(20px);
+    background: #0a0f1e;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #ffffff; border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
   }
 
   .nav-logo {
@@ -593,10 +603,27 @@
   .divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); }
 
   /* RESPONSIVE */
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
     .founder-badge-card { right: 0; }
     .nav-links { display: none; }
+    .nav-links.mobile-open {
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: fixed; top: 65px; left: 0; right: 0;
+      background: rgba(10,15,30,0.98);
+      padding: 1.5rem 5%; gap: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 99;
+    }
+    .nav-hamburger { display: flex !important; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-cards { grid-template-columns: 1fr; }
+    .service-card { border-radius: 0; }
+    section { padding-left: 5%; padding-right: 5%; }
+    .hero { padding-top: 5rem; }
+    h1 { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+    .cta-inner { padding: 0 1rem; }
   }
 </style>
 </head>
@@ -614,6 +641,9 @@
     <a onclick="showPage('home'); setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100)">About</a>
     <a onclick="showPage('services'); setTimeout(()=>document.getElementById('book').scrollIntoView({behavior:'smooth'}),100)" class="nav-cta">Book a Call</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ===== HOME PAGE ===== -->
@@ -853,6 +883,33 @@ function showPage(id) {
   document.getElementById('page-' + id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function toggleMobileNav() {
+  var links = document.querySelector('.nav-links');
+  var btn = document.getElementById('nav-hamburger');
+  links.classList.toggle('mobile-open');
+  var open = links.classList.contains('mobile-open');
+  btn.querySelectorAll('span')[0].style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+  btn.querySelectorAll('span')[1].style.opacity = open ? '0' : '1';
+  btn.querySelectorAll('span')[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+}
+
+// Remove GHL's extra bottom padding/margin around the custom code section
+(function() {
+  function fixGHLSpacing() {
+    var el = document.getElementById('hitex-root');
+    if (!el) return;
+    var parent = el.parentElement;
+    for (var i = 0; i < 5 && parent; i++) {
+      parent.style.setProperty('padding-bottom', '0', 'important');
+      parent.style.setProperty('margin-bottom', '0', 'important');
+      parent.style.setProperty('background', '#0a0f1e', 'important');
+      parent = parent.parentElement;
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixGHLSpacing);
+  else fixGHLSpacing();
+})();
 
 // Force hero styles in case GHL strips inline styles
 (function() {
