@@ -595,6 +595,7 @@
 </style>
 </head>
 <body>
+<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100%;display:block;">
 
 <!-- NAV -->
 <nav>
@@ -850,6 +851,11 @@ function showPage(id) {
 // Force hero styles in case GHL strips inline styles
 (function() {
   function applyHeroStyles() {
+    var root = document.getElementById('hitex-root');
+    if (root) {
+      root.style.setProperty('background', '#0a0f1e', 'important');
+      root.style.setProperty('color', '#ffffff', 'important');
+    }
     var hero = document.querySelector('.hero');
     if (hero) {
       hero.style.setProperty('background', '#0a0f1e', 'important');
@@ -877,5 +883,6 @@ function showPage(id) {
 })();
 </script>
 
+</div><!-- /hitex-root -->
 </body>
 </html>
