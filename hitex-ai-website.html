@@ -51,6 +51,12 @@
     height: 32px;
   }
 
+  .nav-logo img {
+    mix-blend-mode: screen;
+    height: 32px;
+    width: auto;
+  }
+
   .nav-links { display: flex; align-items: center; gap: 2rem; }
 
   .nav-links a {
@@ -263,7 +269,7 @@
   /* HOW IT WORKS */
   .how-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5px;
     margin-top: 4rem;
     background: rgba(255,255,255,0.08);
@@ -595,7 +601,7 @@
 </style>
 </head>
 <body>
-<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100%;display:block;">
+<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100vw;display:block;position:relative;left:50%;margin-left:-50vw;overflow-x:hidden;">
 
 <!-- NAV -->
 <nav>
