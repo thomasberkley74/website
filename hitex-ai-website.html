@@ -896,61 +896,6 @@ function toggleMobileNav() {
   btn.querySelectorAll('span')[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
 }
 
-// Remove GHL's extra bottom padding/margin around the custom code section
-(function() {
-  function fixGHLSpacing() {
-    var el = document.getElementById('hitex-root');
-    if (!el) return;
-    // Walk all the way to body and force dark background + no spacing
-    var parent = el.parentElement;
-    while (parent && parent !== document.documentElement) {
-      parent.style.setProperty('padding-bottom', '0', 'important');
-      parent.style.setProperty('margin-bottom', '0', 'important');
-      parent.style.setProperty('background', '#0a0f1e', 'important');
-      parent = parent.parentElement;
-    }
-    document.body.style.setProperty('background', '#0a0f1e', 'important');
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixGHLSpacing);
-  else fixGHLSpacing();
-  // Run again after a short delay in case GHL re-renders
-  setTimeout(fixGHLSpacing, 500);
-  setTimeout(fixGHLSpacing, 1500);
-})();
-
-// Force hero styles in case GHL strips inline styles
-(function() {
-  function applyHeroStyles() {
-    var root = document.getElementById('hitex-root');
-    if (root) {
-      root.style.setProperty('background', '#0a0f1e', 'important');
-      root.style.setProperty('color', '#ffffff', 'important');
-    }
-    var hero = document.querySelector('.hero');
-    if (hero) {
-      hero.style.setProperty('background', '#0a0f1e', 'important');
-      hero.style.setProperty('color', '#ffffff', 'important');
-      hero.style.setProperty('min-height', '100vh', 'important');
-      hero.style.setProperty('display', 'flex', 'important');
-      hero.style.setProperty('align-items', 'center', 'important');
-      hero.style.setProperty('justify-content', 'center', 'important');
-    }
-    var content = document.querySelector('.hero-content');
-    if (content) {
-      content.style.setProperty('text-align', 'center', 'important');
-      content.style.setProperty('margin', '0 auto', 'important');
-      content.style.setProperty('max-width', '760px', 'important');
-      content.style.setProperty('width', '100%', 'important');
-    }
-    var actions = document.querySelector('.hero-actions');
-    if (actions) actions.style.setProperty('justify-content', 'center', 'important');
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyHeroStyles);
-  } else {
-    applyHeroStyles();
-  }
-})();
 </script>
 
 </div><!-- /hitex-root -->
