@@ -837,12 +837,10 @@
       <h2>Let's talk about your lead pipeline.</h2>
       <p class="section-sub" style="margin: 1.25rem auto 3rem;">In 30 minutes we'll map out exactly where your current system is losing leads and what an automated pipeline for your business would look like. No hard sell. Just clarity on whether this makes sense for you.</p>
 
-      <!-- Calendar embed placeholder -->
-      <div style="background: #111827; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 3rem 2rem; margin-bottom: 2rem;">
-        <div style="font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Calendar coming soon</div>
-        <p style="color: #8b9ab8; font-size: 0.875rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem;">To book a discovery call with Adrian, use the button below or reach out directly at <span style="color: #3b82f6;">hello@hitexai.com</span></p>
-        <button class="btn-primary" onclick="showPage('thankyou')">Request a Discovery Call →</button>
+      <div style="background: #111827; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; margin-bottom: 2rem;">
+        <iframe src="https://api.leadconnectorhq.com/widget/bookings/adrian-rojas-personal-calendar-rwot0eqvy" style="width:100%;min-height:700px;border:none;display:block;" scrolling="no" id="msgsndr-calendar"></iframe>
       </div>
+      <p style="color: #8b9ab8; font-size: 0.8rem; font-weight: 300;">Questions? Reach out at <a href="mailto:adrian@hitexai.com" style="color:#3b82f6;">adrian@hitexai.com</a></p>
 
     </div>
   </section>
@@ -924,5 +922,6 @@ function toggleMobileNav() {
 </script>
 
 </div><!-- /hitex-root -->
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </body>
 </html>
