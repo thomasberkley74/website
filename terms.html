@@ -69,12 +69,11 @@
 </style>
 </head>
 <body>
-<div style="position:fixed;inset:0;background:#0a0f1e;z-index:-9999;pointer-events:none;"></div>
-<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100vw;display:block;position:relative;left:50%;margin-left:-50vw;overflow-x:hidden;">
+<div style="position:fixed;inset:0;background:#0a0f1e;z-index:0;pointer-events:none;"></div>
+<div id="hitex-root" style="background:#0a0f1e;color:#ffffff;font-family:'DM Sans',sans-serif;min-height:100vh;width:100%;display:block;position:relative;z-index:1;overflow-x:hidden;">
 
 <nav>
   <a class="nav-logo" href="https://hitexai.com">
-    <!-- PASTE LOGO IMG TAG FROM MAIN FILE HERE -->
     <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;">Hitex <span style="color:#3b82f6;">AI</span></span>
   </a>
   <a class="nav-back" href="https://hitexai.com">← Back to Home</a>
@@ -134,33 +133,12 @@
 
 <footer>
   <div class="footer-links">
-    <a href="https://csmcollective.com/terms">Terms &amp; Conditions</a>
-    <a href="https://csmcollective.com/privacy-policy-2">Privacy Policy</a>
+    <a href="https://hitexai.com/terms" target="_blank">Terms &amp; Conditions</a>
+    <a href="https://hitexai.com/privacy" target="_blank">Privacy Policy</a>
   </div>
   <p class="footer-copy">© 2025 Hitex AI. All rights reserved.</p>
 </footer>
 
 </div>
-<script>
-(function() {
-  function fixGHL() {
-    document.body.style.setProperty('background','#0a0f1e','important');
-    document.body.style.setProperty('margin','0','important');
-    var el = document.getElementById('hitex-root');
-    if (!el) return;
-    var p = el.parentElement;
-    while (p && p !== document.documentElement) {
-      p.style.setProperty('padding','0','important');
-      p.style.setProperty('margin','0','important');
-      p.style.setProperty('background','#0a0f1e','important');
-      p = p.parentElement;
-    }
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixGHL);
-  else fixGHL();
-  setTimeout(fixGHL, 500);
-  setTimeout(fixGHL, 1500);
-})();
-</script>
 </body>
 </html>
